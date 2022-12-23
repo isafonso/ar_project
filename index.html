@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>AR.JS</title>
+    <style>
+      .arjs-loader {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .arjs-loader pre {
+        text-align: center;
+        font-size: 1.25em;
+        color: rgb(255, 255, 255);
+        padding: 1rem;
+        width: 100%;
+        text-transform: uppercase;
+      }
+      .arjs-loader button {
+        text-align: center;
+        font-size: 1.25em;
+        color: rgb(0, 0, 0);
+        background-color: rgb(255, 255, 255);
+        padding: 1rem;
+        width: 20%;
+        border-radius: 1rem;
+        cursor: pointer;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+  </head>
+  <body style="margin: 0px; overflow: hidden">
+    <div id="app" class="container">
+      <!-- minimal loader shown until image descriptors are loaded -->
+      <!-- <div class="arjs-loader">
+        <div>Loading, please wait...</div>
+      </div>
+      <a-scene embeded arjs="sourceType:ebcam">
+        <a-text value="Learning AR.js" color="red" rotation="-90 0 0"></a-text>
+        <a-marker preset="hiro"
+          ><a-entity
+            position="0 0 0"
+            scale="0.05 0.05 0.05"
+            gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
+          ></a-entity>
+        </a-marker>
+        <a-entity camera></a-entity>
+      </a-scene> -->
+      <div class="arjs-loader">
+        <pre>
+Put the image located on public/assets in front of the screen </pre
+        >
+      </div>
+    </div>
+    <a-scene
+      vr-mode-ui="enabled:false;"
+      renderer="logarithmicDepthBuffer:true; precision:medium;"
+      embedded
+      arjs="trackingMethod:best; sourceType:webcam; debugUIEnabled:false;"
+    >
+      <a-nft
+        type="nft"
+        url="file:///C:/Users/Juliano/Pictures/Screenshots/juliano.jpg"
+        smoth="true"
+        smothCount="10"
+        smothTolerance=".01"
+        smothTreshold="5"
+      >
+        <a-entity
+          gltf-model="file:///C:/Users/Juliano/Pictures/Screenshots/juliano.jpg"
+          scale="5 5 5"
+          position="130 300 -100"
+        >
+        </a-entity>
+      </a-nft>
+      <a-entity camera></a-entity>
+    </a-scene>
+    <script type="module" src="./main"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
